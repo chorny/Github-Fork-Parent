@@ -5,6 +5,7 @@ use warnings;
 our $VERSION='0.01';
 
 use YAML::Tiny;
+use LWP::UserAgent;
 
 use Exporter 'import';
 our @EXPORT = qw(github_parent);
