@@ -3,6 +3,8 @@ use 5.006;
 use strict;
 use warnings;
 our $VERSION='0.01';
+use Exporter 'import';
+our @EXPORT = qw();
 
 sub get_parent {
   my $link=shift;
