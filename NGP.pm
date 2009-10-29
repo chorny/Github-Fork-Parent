@@ -44,6 +44,11 @@ sub github_parent {
   my $yaml_content=get_network_data($author,$project);
   my $yaml=YAML::Tiny->read_string($yaml_content);
   my @network=@{$yaml->[0]->{network}};
+  foreach my $fork (@network) {
+    if ($fork->{':fork'} eq 'false') {
+      return $fork->{':url'};
+    }
+  }
 }
 #
 
