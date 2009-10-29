@@ -2,6 +2,7 @@ package NGP;
 use 5.006;
 use strict;
 use warnings;
+our $VERSION='0.01';
 
 sub get_parent {
   my $link=shift;
