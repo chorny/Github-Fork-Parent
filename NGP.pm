@@ -23,6 +23,16 @@ sub get_parent {
     }
   }
 }
+
+sub parse_github_links {
+  my $link=shift;
+  if ($link=~m#^(?:\Qgit://github.com/\E|git\@github\.com:\E|\Qhttp://github.com/\E)([^/]+)/([^/]+).git$#) {
+    return ($1,$2);
+  } else {
+    return (undef,undef);
+  }
+  
+}
 #
 
 1;
