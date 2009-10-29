@@ -41,6 +41,7 @@ sub parse_github_links {
 sub github_parent {
   my $link=shift;
   my ($author,$project)=parse_github_links($link);
+  return $link unless $author;
   my $yaml_content=get_network_data($author,$project);
   my $yaml=YAML::Tiny->read_string($yaml_content);
   my @network=@{$yaml->[0]->{network}};
@@ -49,6 +50,7 @@ sub github_parent {
       return $fork->{':url'};
     }
   }
+  die;
 }
 #
 
