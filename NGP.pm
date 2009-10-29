@@ -3,12 +3,15 @@ use 5.006;
 use strict;
 use warnings;
 our $VERSION='0.01';
-use Exporter 'import';
-our @EXPORT = qw();
 
-sub get_parent {
-  my $link=shift;
-  my $url = "http://github.com/api/v2/yaml/repos/show/schacon/grit/network";
+use YAML::Tiny;
+
+use Exporter 'import';
+our @EXPORT = qw(github_parent);
+
+sub get_network_data {
+  my ($author,$project)=@_;
+  my $url = "http://github.com/api/v2/yaml/repos/show/$author/$project/network";
 
   my $ua=LWP::UserAgent->new();
   my $response = $ua->get($url);
@@ -32,6 +35,14 @@ sub parse_github_links {
     return (undef,undef);
   }
   
+}
+
+sub github_parent {
+  my $link=shift;
+  my ($author,$project)=parse_github_links($link);
+  my $yaml_content=get_network_data($author,$project);
+  my $yaml=YAML::Tiny->read_string($yaml_content);
+  my @network=@{$yaml->[0]->{network}};
 }
 #
 
