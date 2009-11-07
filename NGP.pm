@@ -52,7 +52,13 @@ sub github_parent {
   }
   die;
 }
-#
+
+#GitHub allows to fork your git repository just by pushing "Fork" button.
+#NGP (possible name - Github::Fork::Parent) is a module to determine which repository stands in a root of forking hierarhy or in other words, which repository is a parent one for this.
+
+#Net::GitHub is a similar module, but it is more low level, more complex and requires several modules, for ex. Crypt::SSLeay.
+#NGP will depend only on YAML::Tiny and LWP::UserAgent.
+
 
 1;
 # (c) Alexandr Ciornii, 2009
