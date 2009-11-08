@@ -6,7 +6,7 @@ use warnings;
 
 =head1 NAME
 
-Github::Fork::Parent - Perl module to determine which repository stands in a root of GitHub forking hierarhy
+Github::Fork::Parent - Perl module to determine which repository stands in a root of GitHub forking hierarhy.
 
 =head1 VERSION
 
@@ -27,11 +27,6 @@ Perhaps a little code snippet.
 
     my $foo = Github::Fork::Parent->new();
     ...
-
-=head1 EXPORT
-
-A list of functions that can be exported.  You can delete this section
-if you don't export anything, such as for a purely object-oriented module.
 
 =head1 FUNCTIONS
 
