@@ -18,6 +18,12 @@ my $builder = Module::Build->new(
         'Test::More' => 0,
         'LWP::Online' => 1.06,
     },
+    meta_merge => {
+        resources=> {
+            repository => 'http://github.com/chorny/Github-Fork-Parent',
+        },
+        keywords => ['github','repository','fork'],
+    },
     add_to_cleanup      => [ 'Github-Fork-Parent-*' ],
     create_makefile_pl => 'traditional',
 );
