@@ -16,6 +16,7 @@ my $builder = Module::Build->new(
     },
     build_requires => {
         'Test::More' => 0,
+        'LWP::Online' => 1.06,
     },
     add_to_cleanup      => [ 'Github-Fork-Parent-*' ],
     create_makefile_pl => 'traditional',
