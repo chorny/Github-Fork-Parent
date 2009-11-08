@@ -37,6 +37,8 @@ if you don't export anything, such as for a purely object-oriented module.
 
 =head2 github_parent
 
+Takes link to repository (git://, git@ or http://) and returns http link to root repository.
+
 =cut
 
 use YAML::Tiny 1.40;
