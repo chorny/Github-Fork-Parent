@@ -129,6 +129,10 @@ L<http://search.cpan.org/dist/Github-Fork-Parent/>
 =back
 
 
+=head1 SEE ALSO
+
+Net::GitHub
+
 =head1 ACKNOWLEDGEMENTS
 
 
