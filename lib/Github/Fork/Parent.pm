@@ -75,14 +75,18 @@ sub github_parent {
   my ($author,$project)=parse_github_links($link);
   return $link unless $author;
   my $yaml_content=get_network_data($author,$project);
-  my $yaml=YAML::Tiny->read_string($yaml_content);
-  my @network=@{$yaml->[0]->{network}};
-  foreach my $fork (@network) {
-    if ($fork->{':fork'} eq 'false') {
-      return $fork->{':url'};
+  if ($yaml_content) {
+    my $yaml=YAML::Tiny->read_string($yaml_content);
+    my @network=@{$yaml->[0]->{network}};
+    foreach my $fork (@network) {
+      if ($fork->{':fork'} eq 'false') {
+        return $fork->{':url'};
+      }
     }
+    die;
+  } else {
+    die "No content";
   }
-  die;
 }
 
 
