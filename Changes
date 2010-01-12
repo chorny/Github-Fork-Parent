@@ -1,6 +1,8 @@
 Revision history for Github-Fork-Parent
 
+0.02
         Add 'github_parent_author'
+        Fix error in test
 
 0.01    2009-11-08
         First version.

@@ -14,7 +14,6 @@ is(github_parent('git://github.com/chorny/cgi-session.git'),
 
 is(github_parent('git@github.com:chorny/test-more.git'),
  'http://github.com/schwern/test-more');
-#git://github.com/briandfoy/PPI-App-ppi_version-BDFOY.git
 is(github_parent_author('git@github.com:chorny/test-more.git'),
  'schwern');
 
