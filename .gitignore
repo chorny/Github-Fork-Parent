@@ -12,3 +12,4 @@ pod2htm*.tmp
 Github-Fork-Parent-*
 Makefile.PL
 META.yml
+MYMETA.yml
