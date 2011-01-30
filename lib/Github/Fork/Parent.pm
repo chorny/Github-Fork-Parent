@@ -51,6 +51,7 @@ sub get_network_data {
   my $url = "http://github.com/api/v2/yaml/repos/show/$author/$project/network";
 
   my $ua=LWP::UserAgent->new();
+  $ua->timeout(50);
   my $response = $ua->get($url);
   if ($response->is_success) {
     my $yaml = $response->content();
@@ -66,7 +67,7 @@ sub get_network_data {
 
 sub parse_github_links {
   my $link=shift;
-  if ($link=~m#^(?:\Qgit://github.com/\E|git\@github\.com:\E|\Qhttp://github.com/\E)([^/]+)/([^/]+).git$#) {
+  if ($link=~m#^(?:\Qgit://github.com/\E|git\@github\.com:\E|https?\Q://github.com/\E)([^/]+)/([^/]+).git$#) {
     return ($1,$2);
   } else {
     return (undef,undef);
@@ -169,7 +170,7 @@ Net::GitHub
 
 =head1 COPYRIGHT & LICENSE
 
-Copyright 2009 Alexandr Ciornii.
+Copyright 2009-2011 Alexandr Ciornii.
 
 This program is free software; you can redistribute it and/or modify it
 under the terms of either: the GNU General Public License as published
