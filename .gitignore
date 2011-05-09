@@ -13,4 +13,5 @@ Github-Fork-Parent-*
 Makefile.PL
 META.yml
 MYMETA.yml
+MYMETA.json
 test.pl

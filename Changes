@@ -1,6 +1,7 @@
 Revision history for Github-Fork-Parent
 
         Parse https links too
+        Modify tests to mirror github changes
 
 0.10    2010-01-12
         Add 'github_parent_author'
