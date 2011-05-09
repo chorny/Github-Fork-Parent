@@ -19,14 +19,8 @@ our $VERSION = '0.10';
 
 =head1 SYNOPSIS
 
-Quick summary of what the module does.
-
-Perhaps a little code snippet.
-
-    use Github::Fork::Parent;
-
-    my $foo = Github::Fork::Parent->new();
-    ...
+my $parent_url = github_parent('git://github.com/chorny/cgi-session.git');
+#returns https://github.com/cromedome/cgi-session
 
 =head1 FUNCTIONS
 
@@ -127,9 +121,6 @@ Alexandr Ciornii, C<< <alexchorny at gmail.com> >>
 Please report any bugs or feature requests to C<bug-github-fork-parent at rt.cpan.org>, or through
 the web interface at L<http://rt.cpan.org/NoAuth/ReportBug.html?Queue=Github-Fork-Parent>.  I will be notified, and then you'll
 automatically be notified of progress on your bug as I make changes.
-
-
-
 
 =head1 SUPPORT
 
