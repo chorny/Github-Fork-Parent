@@ -8,3 +8,4 @@ t/pod.t
 t/test.t
 Makefile.PL
 META.yml
+META.json

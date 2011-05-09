@@ -17,7 +17,7 @@ is(github_parent_author('git@github.com:chorny/test-more.git'),
  'schwern');
 
 my @l=Github::Fork::Parent::parse_github_links('https://github.com/schwern/test-more');
-is($l[0], 'schwern');
+is($l[0], 'schwern','parse_github_links');
 
 
 # (c) Alexandr Ciornii, 2009-2010
