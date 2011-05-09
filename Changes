@@ -1,5 +1,6 @@
 Revision history for Github-Fork-Parent
 
+0.11    2011-05-09
         Parse https links too
         Modify tests to mirror github changes
 
