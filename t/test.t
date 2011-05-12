@@ -3,8 +3,8 @@
 use 5.006;
 use strict;
 use warnings;
-use Test::More tests => 4;
 use LWP::Online ':skip_all';
+use Test::More tests => 4;
 use Github::Fork::Parent;
 
 is(github_parent('git://github.com/chorny/cgi-session.git'),
