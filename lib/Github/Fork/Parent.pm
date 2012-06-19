@@ -61,7 +61,7 @@ sub get_network_data {
 
 sub parse_github_links {
   my $link=shift;
-  if ($link=~m#^(?:\Qgit://github.com/\E|git\@github\.com:\E|https?://github\.com/)([^/]+)/([^/.]+)(?:\.git)?$#) {
+  if ($link=~m#^(?:\Qgit://github.com/\E|git\@github\.com:|https?://github\.com/)([^/]+)/([^/.]+)(?:\.git)?$#) {
     return ($1,$2);
   } else {
     return (undef,undef);
