@@ -34,15 +34,17 @@ Takes link to repository (git://, git@ or http://) and returns owner of root rep
 
 =cut
 
-use YAML::Tiny 1.40;
+use JSON;
+#use YAML::Tiny 1.40;
 use LWP::UserAgent;
 
 use Exporter 'import';
 our @EXPORT = qw(github_parent github_parent_author);
 
-sub get_network_data {
+sub get_repo_data {
   my ($author,$project)=@_;
-  my $url = "http://github.com/api/v2/yaml/repos/show/$author/$project/network";
+  #my $url = "http://github.com/api/v2/yaml/repos/show/$author/$project/network";
+  my $url = "https://api.github.com/repos/$author/$project";
 
   my $ua=LWP::UserAgent->new();
   $ua->timeout(50);
@@ -73,16 +75,13 @@ sub github_parent {
   my $link=shift;
   my ($author,$project)=parse_github_links($link);
   return $link unless $author;
-  my $yaml_content=get_network_data($author,$project);
+  my $yaml_content=get_repo_data($author,$project);
   if ($yaml_content) {
-    my $yaml=YAML::Tiny->read_string($yaml_content);
-    my @network=@{$yaml->[0]->{network}};
-    foreach my $fork (@network) {
-      if ($fork->{':fork'} eq 'false') {
-        return $fork->{':url'};
-      }
-    }
-    die;
+    #my $yaml=YAML::Tiny->read_string($yaml_content) or die;
+    my $yaml=decode_json($yaml_content);
+    my $source_url=$yaml->{source}{html_url};
+    die unless $source_url;
+    return $source_url;
   } else {
     die "No content";
   }
@@ -97,15 +96,13 @@ sub github_parent_author {
   my $link=shift;
   my ($author,$project)=parse_github_links($link);
   return $link unless $author;
-  my $yaml_content=get_network_data($author,$project);
+  my $yaml_content=get_repo_data($author,$project);
   if ($yaml_content) {
-    my $yaml=YAML::Tiny->read_string($yaml_content);
-    my @network=@{$yaml->[0]->{network}};
-    foreach my $fork (@network) {
-      if ($fork->{':fork'} eq 'false') {
-        return $fork->{':owner'};
-      }
-    }
+    #my $yaml=YAML::Tiny->read_string($yaml_content) or die;
+    my $yaml=decode_json($yaml_content);
+    my $source=$yaml->{source}{owner}{login};
+    die unless $source;
+    return $source;
     die;
   } else {
     die "No content";

@@ -11,7 +11,8 @@ my $builder = Module::Build->new(
     requires => {
         'Exporter' => 5.57,
         'LWP::UserAgent' => 0,
-        'YAML::Tiny' => 1.40,
+        'LWP::Protocol::https' => 0,
+        'JSON' => 0,
         'perl' => 5.006,
     },
     build_requires => {

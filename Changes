@@ -1,5 +1,8 @@
 Revision history for Github-Fork-Parent
 
+        Move to GitHub API v3
+        Small fix for test
+
 0.11    2011-05-09
         Parse https links too
         Modify tests to mirror github changes
