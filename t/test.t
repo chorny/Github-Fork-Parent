@@ -20,4 +20,4 @@ my @l=Github::Fork::Parent::parse_github_links('https://github.com/schwern/test-
 is($l[0], 'schwern','parse_github_links');
 
 
-# (c) Alexandr Ciornii, 2009-2010
+# (c) Alexandr Ciornii, 2009-2012

@@ -10,11 +10,11 @@ Github::Fork::Parent - Perl module to determine which repository stands in a roo
 
 =head1 VERSION
 
-Version 0.11
+Version 0.20
 
 =cut
 
-our $VERSION = '0.11';
+our $VERSION = '0.20';
 
 
 =head1 SYNOPSIS
@@ -158,7 +158,7 @@ Net::GitHub
 
 =head1 COPYRIGHT & LICENSE
 
-Copyright 2009-2011 Alexandr Ciornii.
+Copyright 2009-2012 Alexandr Ciornii.
 
 This program is free software; you can redistribute it and/or modify it
 under the terms of either: the GNU General Public License as published
