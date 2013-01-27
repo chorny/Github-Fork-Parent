@@ -1,5 +1,8 @@
 Revision history for Github-Fork-Parent
 
+0.21    2013-01-27
+        Made online test check api.github.com availability first
+
 0.20    2012-11-11
         Move to GitHub API v3
         Small fix for test

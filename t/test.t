@@ -12,7 +12,7 @@ my $ua = LWP::UserAgent->new;
 $ua->env_proxy;
 $ua->timeout(10);
 #$ua->ssl_opts( verify_hostname => 0 );
-my $site = 'https://api1.github.com/';
+my $site = 'https://api.github.com/';
 my $r = $ua->get($site);
 my $content = $r->content;
 my $api_site_available = 1;
