@@ -27,9 +27,9 @@ SKIP: {
 #git://github.com/cromedome/cgi-session.git
 
   is(github_parent('git@github.com:chorny/test-more.git'),
-   'https://github.com/schwern/test-more');
+   'https://github.com/Test-More/test-more');
   is(github_parent_author('git@github.com:chorny/test-more.git'),
-   'schwern');
+   'Test-More');
 
 }
 
