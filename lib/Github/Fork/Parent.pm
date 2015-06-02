@@ -83,7 +83,7 @@ sub github_parent {
     die unless $source_url;
     return $source_url;
   } else {
-    die "No content";
+    die "No content for $author/$project";
   }
 }
 
