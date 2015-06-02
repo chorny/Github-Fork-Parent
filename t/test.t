@@ -22,8 +22,8 @@ elsif ( $content !~ /^\s*\{/s) { $api_site_available = 0; diag("api.github.com c
 SKIP: {
   skip "api.github.com unavailable", 3 unless $api_site_available;
 
-  is(github_parent('git://github.com/chorny/cgi-session.git'),
-   'https://github.com/cromedome/cgi-session');
+  is(github_parent('git://github.com/chorny/plagger.git'),
+   'https://github.com/miyagawa/plagger');
 #git://github.com/cromedome/cgi-session.git
 
   is(github_parent('git@github.com:chorny/test-more.git'),
