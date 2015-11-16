@@ -4,7 +4,7 @@ use 5.006;
 use strict;
 use warnings;
 use LWP::Online ':skip_all';
-use Test::More tests => 4;
+use Test::More tests => 5;
 use Github::Fork::Parent;
 
 use LWP::UserAgent;
@@ -20,7 +20,7 @@ if ( !$r->is_success ) { $api_site_available = 0; diag("api.github.com error: ".
 elsif ( $content !~ /^\s*\{/s) { $api_site_available = 0; diag("api.github.com content error: $content");}
 
 SKIP: {
-  skip "api.github.com unavailable", 3 unless $api_site_available;
+  skip "api.github.com unavailable", 4 unless $api_site_available;
 
   is(github_parent('git://github.com/chorny/plagger.git'),
    'https://github.com/miyagawa/plagger');
@@ -30,6 +30,10 @@ SKIP: {
    'https://github.com/Test-More/test-more');
   is(github_parent_author('git@github.com:chorny/test-more.git'),
    'Test-More');
+
+  is(github_parent_author('http://github.com/chorny/Github-Fork-Parent'),
+   'chorny');
+   
 
 }
 

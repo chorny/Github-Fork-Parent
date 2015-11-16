@@ -1,5 +1,7 @@
 Revision history for Github-Fork-Parent
 
+        Fix in case there are no forks
+
 0.23    2015-11-15
         Different repository in test
 

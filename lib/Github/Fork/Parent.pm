@@ -100,8 +100,9 @@ sub github_parent_author {
   if ($yaml_content) {
     #my $yaml=YAML::Tiny->read_string($yaml_content) or die;
     my $yaml=decode_json($yaml_content);
+    return $author unless $yaml->{'fork'};
     my $source=$yaml->{source}{owner}{login};
-    die unless $source;
+    die "No login in YAML for $link" unless $source;
     return $source;
     die;
   } else {
