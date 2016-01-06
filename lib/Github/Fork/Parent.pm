@@ -10,17 +10,17 @@ Github::Fork::Parent - Perl module to determine which repository stands in a roo
 
 =head1 VERSION
 
-Version 0.23
+Version 0.24
 
 =cut
 
-our $VERSION = '0.23';
+our $VERSION = '0.24';
 
 
 =head1 SYNOPSIS
 
-my $parent_url = github_parent('git://github.com/chorny/cgi-session.git');
-#returns https://github.com/cromedome/cgi-session
+my $parent_url = github_parent('git://github.com/chorny/plagger.git');
+#returns https://github.com/miyagawa/plagger
 
 =head1 FUNCTIONS
 
@@ -159,7 +159,7 @@ Net::GitHub
 
 =head1 COPYRIGHT & LICENSE
 
-Copyright 2009-2015 Alexandr Ciornii.
+Copyright 2009-2016 Alexandr Ciornii.
 
 This program is free software; you can redistribute it and/or modify it
 under the terms of either: the GNU General Public License as published
