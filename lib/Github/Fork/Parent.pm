@@ -6,7 +6,7 @@ use warnings;
 
 =head1 NAME
 
-Github::Fork::Parent - Perl module to determine which repository stands in a root of GitHub forking hierarhy.
+Github::Fork::Parent - Perl module to determine which repository stands in a root of GitHub forking hierarchy.
 
 =head1 VERSION
 
