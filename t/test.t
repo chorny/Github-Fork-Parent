@@ -4,7 +4,7 @@ use 5.006;
 use strict;
 use warnings;
 use LWP::Online ':skip_all';
-use Test::More tests => 5;
+use Test::More tests => 13;
 use Github::Fork::Parent;
 
 use LWP::UserAgent;
@@ -33,11 +33,35 @@ SKIP: {
 
   is(github_parent_author('http://github.com/chorny/Github-Fork-Parent'),
    'chorny');
-   
-
 }
 
-my @l=Github::Fork::Parent::parse_github_links('https://github.com/schwern/test-more');
-is($l[0], 'schwern','parse_github_links');
+{
+  my @l=Github::Fork::Parent::parse_github_links('https://github.com/schwern/test-more');
+  is($l[0], 'schwern','parse_github_links');
+  is($l[1], 'test-more','parse_github_links - repository');
+}
 
-# (c) Alexandr Ciornii, 2009-2013
+{
+  my @l=Github::Fork::Parent::parse_github_links('https://github.com/author/repo.git');
+  is($l[0], 'author','parse_github_links - author');
+  is($l[1], 'repo','parse_github_links - repository');
+}
+
+{
+  my @l=Github::Fork::Parent::parse_github_links('https://github.com/gtsafas/mailgun.perl');
+  is($l[0], 'gtsafas','parse_github_links - author');
+  is($l[1], 'mailgun.perl','parse_github_links - repository');
+}
+
+{
+  my @l=Github::Fork::Parent::parse_github_links('https://github.com/gtsafas/mailgun.perl.git');
+  is($l[1], 'mailgun.perl','parse_github_links - repository');
+}
+
+{
+  my @l=Github::Fork::Parent::parse_github_links('https://github.com/author/repo.git1');
+  is($l[0], 'author','parse_github_links - author');
+  is($l[1], 'repo.git1','parse_github_links - repository');
+}
+
+# (c) Alexandr Ciornii, 2009-2017

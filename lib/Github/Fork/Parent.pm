@@ -10,11 +10,11 @@ Github::Fork::Parent - Perl module to determine which repository stands in a roo
 
 =head1 VERSION
 
-Version 0.24
+Version 0.24_01
 
 =cut
 
-our $VERSION = '0.24';
+our $VERSION = '0.24_01';
 
 
 =head1 SYNOPSIS
@@ -63,7 +63,11 @@ sub get_repo_data {
 
 sub parse_github_links {
   my $link=shift;
-  if ($link=~m#^(?:\Qgit://github.com/\E|git\@github\.com:|https?://github\.com/)([^/]+)/([^/.]+)(?:\.git)?$#) {
+  if ($link=~m{^
+    (?:\Qgit://github.com/\E|git\@github\.com:|https?://github\.com/)
+    ([^/]+)/([^/.]+(?:\.(?:(?!git$)[^/.]+))?) #support https://github.com/gtsafas/mailgun.perl
+    (?:\.git)?$ }x
+  ) {
     return ($1,$2);
   } else {
     return (undef,undef);
