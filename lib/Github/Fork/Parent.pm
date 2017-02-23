@@ -63,10 +63,11 @@ sub get_repo_data {
 
 sub parse_github_links {
   my $link=shift;
+  $link =~ s/\.git$//; #github does not allow repositories ending in .git, so we can safely remove extension
   if ($link=~m{^
     (?:\Qgit://github.com/\E|git\@github\.com:|https?://github\.com/)
-    ([^/]+)/([^/.]+(?:\.(?:(?!git$)[^/.]+))?) #support https://github.com/gtsafas/mailgun.perl
-    (?:\.git)?$ }x
+    ([^/]+)/([^/]+) #repository name can contain dots
+    $ }x 
   ) {
     return ($1,$2);
   } else {

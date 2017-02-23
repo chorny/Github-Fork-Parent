@@ -4,7 +4,7 @@ use 5.006;
 use strict;
 use warnings;
 use LWP::Online ':skip_all';
-use Test::More tests => 13;
+use Test::More tests => 15;
 use Github::Fork::Parent;
 
 use LWP::UserAgent;
@@ -62,6 +62,12 @@ SKIP: {
   my @l=Github::Fork::Parent::parse_github_links('https://github.com/author/repo.git1');
   is($l[0], 'author','parse_github_links - author');
   is($l[1], 'repo.git1','parse_github_links - repository');
+}
+
+{
+  my @l=Github::Fork::Parent::parse_github_links('https://github.com/author/repo.git1.aa');
+  is($l[0], 'author','parse_github_links - author');
+  is($l[1], 'repo.git1.aa','parse_github_links - repository');
 }
 
 # (c) Alexandr Ciornii, 2009-2017
