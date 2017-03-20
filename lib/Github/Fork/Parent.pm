@@ -109,7 +109,6 @@ sub github_parent_author {
     my $source=$yaml->{source}{owner}{login};
     die "No login in YAML for $link" unless $source;
     return $source;
-    die;
   } else {
     die "No content";
   }
